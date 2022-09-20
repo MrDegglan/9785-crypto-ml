@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img src="../static/Machine_Bitcoin_5x.png" alt="" width="24" height="24" class="d-inline-block align-text-top">
             Crypto ML
           </a>
@@ -47,6 +47,15 @@
 
                 <button type="submit" class="btn btn-primary">Predict</button>
             </form>
+
+            {% if predict %}
+                <p>{{ model }}</p>
+
+                <form action="/" method="get">
+                    <button type="submit" class="btn btn-danger">Reset</button>
+                </form>
+            {% endif %}
+
         </div>
         <div class="col-4"></div>
     </div>
