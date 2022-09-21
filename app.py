@@ -21,9 +21,13 @@ def pageNotFound():
 def predict():
     if request.method == 'POST':
         PREDICT_ENABLED = True
-        model = request.form['model']
+        if request.form['model'] == 'default':
+            error = 'No model selected. Please select a model.'
+            return render_template('error.html', error=error)
+        # Insert logic to get result from model
 
-        return render_template('index.html', predict=PREDICT_ENABLED, model=model) 
+        result = None # will be changed...
+        return render_template('index.html', predict=PREDICT_ENABLED, result=result, model=request.method['model']) 
 
     if request.method == 'GET':
         return render_template('error.html')

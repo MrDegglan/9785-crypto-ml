@@ -26,6 +26,10 @@
         <div class="col-4 justify-content-center text-center">
             <h2>Something went wrong...</h2>
             <p>Either the accessed endpoint doesn't exist or was accessed using the wrong request method.</p>
+            <hr>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
             <form action="/" method="get">
                 <button class="btn btn-primary">Return Home</button>
             </form>

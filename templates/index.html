@@ -31,11 +31,11 @@
 
             <hr/>
 
-            <form action="/predict" method="post">
+            <form class="border rounded" style="padding: 1.5em;" action="/predict" method="post">
                 <div class="mb-3">
                     <label for="model" class="form-label">Model Type</label>
                     <select id="model" name="model" class="form-select">
-                        <option selected>Select type...</option>
+                        <option value="default" selected>Select type...</option>
                         <option value="lstm">LSTM-based model</option>
                         <option value="gru">GRU-based model</option>
                     </select>
@@ -49,7 +49,9 @@
             </form>
 
             {% if predict %}
-                <p>{{ model }}</p>
+                <h2>Predicted Result</h2>
+                <p>{{ result }}</p>
+                <p>Selected model: {{ model }}</p>
 
                 <form action="/" method="get">
                     <button type="submit" class="btn btn-danger">Reset</button>
