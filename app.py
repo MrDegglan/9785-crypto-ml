@@ -36,8 +36,8 @@ def predict():
         return render_template('error.html')
 
 
-def predict_money(str hour, str day, str month, str year):
-
+def predict_money(hour, day, month, year):
+    hour = 0
     
 
 
