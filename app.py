@@ -1,5 +1,4 @@
-from crypt import methods
-from math import fabs
+import pickle
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -26,6 +25,10 @@ def predict():
             return render_template('error.html', error=error)
         # Insert logic to get result from model
 
+        # Receive date from template
+
+        predict_money()
+
         result = None # will be changed...
         return render_template('index.html', predict=PREDICT_ENABLED, result=result, model=request.method['model']) 
 
@@ -33,5 +36,12 @@ def predict():
         return render_template('error.html')
 
 
+def predict_money(str hour, str day, str month, str year):
+
+    
+
+
 if __name__ == '__main__':
+    lstm_model = pickle.load(open('pickles/RNN_LSTM_SIMPLE.pkl', 'rb'))
+    gru_model = pickle.load(open('pickles/RNN_GRU_SIMPLE.pkl', 'rb'))
     app.run(debug=True, port=5000)

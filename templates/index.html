@@ -37,16 +37,8 @@
 
             <form class="border rounded" style="padding: 1.5em;" action="/predict" method="post">
                 <div class="mb-3">
-                    <label for="model" class="form-label">Model Type</label>
-                    <select id="model" name="model" class="form-select">
-                        <option value="default" selected>Select type...</option>
-                        <option value="lstm">LSTM-based model</option>
-                        <option value="gru">GRU-based model</option>
-                    </select>
-                </div>
-                <div class="mb-3">
                     <label for="input" class="form-label">Input for Model</label>
-                    <input type="text" id="input" name="input" class="form-control"/>
+                    <input type="datetime-local" id="input" name="input" class="form-control"/>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Predict</button>
