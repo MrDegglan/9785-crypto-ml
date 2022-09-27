@@ -9,6 +9,21 @@
     
     <title>Crypto ML for 9785</title>
     <link rel="icon" href="../static/Machine_Bitcoin_5x.png">
+    <!-- Font awesome is not required provided you change the icon options -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/solid.min.js"
+      integrity="sha512-C92U8X5fKxCN7C6A/AttDsqXQiB7gxwvg/9JCxcqR6KV+F0nvMBwL4wuQc+PwCfQGfazIe7Cm5g0VaHaoZ/BOQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/fontawesome.min.js"
+      integrity="sha512-5qbIAL4qJ/FSsWfIq5Pd0qbqoZpk5NcUVeAAREV2Li4EKzyJDEGlADHhHOSSCw0tHP7z3Q4hNHJXa81P92borQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- end FA -->
 </head>
 <body>
     <nav class="navbar navbar-light bg-light">
@@ -36,18 +51,20 @@
             <hr/>
 
             <form class="border rounded" style="padding: 1.5em;" action="/predict" method="post">
-                <div class="mb-3">
-                    <label for="input" class="form-label">Input for Model</label>
-                    <input type="datetime-local" id="input" name="input" class="form-control"/>
+                <label for="input" class="form-label">Select date and hour</label>
+                <div class="input-group">
+                    <input name="input" id="input" type="datetime-local" class="form-control"/>
+                    <span class="input-group-text">
+                        <span class="fa-solid fa-calendar"></span>
+                    </span>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Predict</button>
+                <button type="submit" class="btn btn-primary" style="margin-top:.5rem;">Predict</button>
             </form>
 
             {% if predict %}
                 <h2>Predicted Result</h2>
-                <p>{{ result }}</p>
-                <p>Selected model: {{ model }}</p>
+                <p>Inputed datetime: {{ input }}</p>
 
                 <form action="/" method="get">
                     <button type="submit" class="btn btn-danger">Reset</button>
