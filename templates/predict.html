@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,31 +39,51 @@
     </nav>
 
     <div class="row" style="padding: 0.5em;">
-        <div class="col-3"></div>
-        <div class="col-6 justify-content-center text-center">
+        <div class="col-2"></div>
+        <div class="col-8 justify-content-center text-center">
             <h1>Crypto ML for 9785</h1>
             <h4>by Group 24</h4>
 
-            <p>This web application is designed as a simple method to deploy the machine learning models that Group 24 has created for our ICT Capstone Project.</p>
-            <p>Using the form below, users can provide an input to one of the models are receive its predicted output.</p>
-
             <hr/>
 
-            <form class="border rounded" style="padding: 1.5em;" action="/predict" method="post">
-                <label for="input" class="form-label">Select date and hour</label>
-                <div class="input-group">
-                    <input name="input" id="input" type="datetime-local" class="form-control"/>
-                    <span class="input-group-text">
-                        <span class="fa-solid fa-calendar"></span>
-                    </span>
+            {% if predict %}
+                <h2>Predicted Result</h2>
+
+                <div class="row">
+                    <div class="col-6">
+                        <p>Model 1</p>
+                        <div class="border rounded" style="padding: .5em; margin: .5rem;">
+                            <p>Expected:</p>
+                        </div>
+                        <div class="border rounded" style="padding: .5em; margin: .5rem;">
+                            <p>Predicted:</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <p>Model 2</p>
+                        <div class="border rounded" style="padding: .5em; margin: .5rem;">
+                            <p>Expected:</p>
+                        </div>
+                        <div class="border rounded" style="padding: .5em; margin: .5rem;">
+                            <p>Predicted:</p>
+                        </div>
+                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="margin-top:.5rem;">Predict</button>
-            </form>
+                <hr>
+
+                <h2>Visualisation</h2>
+                <p>Visualisation will go here...</p>
+
+                <form action="/" method="get">
+                    <button type="submit" class="btn btn-danger" style="margin-top: 0.5rem;">Reset</button>
+                </form>
+            {% endif %}
+
         </div>
-        <div class="col-3"></div>
+        <div class="col-2"></div>
     </div>
-      
+
     <nav class="navbar fixed-bottom navbar-light bg-light">
         <div class="container-fluid">
             <div class="col text-center justify-content-center">

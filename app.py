@@ -45,20 +45,17 @@ def predict():
         format_datetime(request.form['input'])
 
         result = None # will be changed...
-        return render_template('index.html', predict=PREDICT_ENABLED, result=result) 
+        return render_template('predict.html', predict=PREDICT_ENABLED, result=result) 
 
     if request.method == 'GET':
         return render_template('error.html')
 
 
-<<<<<<< HEAD
 def predict_money(hour, day, month, year):
     hour = 0
     
 
 
-=======
->>>>>>> 279a918 (Redid form inputs and split datetime function)
 if __name__ == '__main__':
     lstm_model = pickle.load(open('pickles/RNN_LSTM_SIMPLE.pkl', 'rb'))
     gru_model = pickle.load(open('pickles/RNN_GRU_SIMPLE.pkl', 'rb'))
