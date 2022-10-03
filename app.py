@@ -6,18 +6,22 @@ PREDICT_ENABLED = None
 
 
 def format_datetime(input):
+    final_datetime: dict = None
 
     split_datetime = input.split('T')
-    raw_date = split_datetime[0]
-    raw_time = split_datetime[1]
 
-    split_date = raw_date.split('-')
-    split_time = raw_time.split(':')
+    split_date = split_datetime[0].split('-')
+    split_time = split_datetime[1].split(':')
 
-    print(split_date)
-    print(split_time)
+    final_datetime.update("year", split_date[0])
+    final_datetime.update("month", split_date[1])
+    final_datetime.update("day", split_date[2])
+    final_datetime.update("hour", split_time[0])
 
-def predict_money(year, month, day, hour):
+    print(final_datetime)
+    return final_datetime
+
+def predict_money(datetime: dict):
     # Add prediction logic here
 
     return
@@ -25,7 +29,6 @@ def predict_money(year, month, day, hour):
 
 @app.route('/')
 def welcome():
-    PREDICT_ENABLED = False
     return render_template('index.html', predict=PREDICT_ENABLED)
 
 
@@ -37,24 +40,18 @@ def pageNotFound():
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
     if request.method == 'POST':
-        PREDICT_ENABLED = True
         # Receive datetime from template
         predict_list = request.form.to_dict()
         predict_list = list(predict_list.values())
         print(request.form['input'])
-        format_datetime(request.form['input'])
+        datetime: dict = format_datetime(request.form['input'])
+        result = predict_money(datetime)
 
-        result = None # will be changed...
-        return render_template('predict.html', predict=PREDICT_ENABLED, result=result) 
+        return render_template('predict.html', result=result) 
 
     if request.method == 'GET':
         return render_template('error.html')
-
-
-def predict_money(hour, day, month, year):
-    hour = 0
     
-
 
 if __name__ == '__main__':
     lstm_model = pickle.load(open('pickles/RNN_LSTM_SIMPLE.pkl', 'rb'))

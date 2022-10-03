@@ -46,39 +46,37 @@
 
             <hr/>
 
-            {% if predict %}
-                <h2>Predicted Result</h2>
+            <h2>Predicted Result</h2>
 
-                <div class="row">
-                    <div class="col-6">
-                        <p>Model 1</p>
-                        <div class="border rounded" style="padding: .5em; margin: .5rem;">
-                            <p>Expected:</p>
-                        </div>
-                        <div class="border rounded" style="padding: .5em; margin: .5rem;">
-                            <p>Predicted:</p>
-                        </div>
+            <div class="row">
+                <div class="col-6">
+                    <p>Model 1</p>
+                    <div class="border rounded" style="padding: .5em; margin: .5rem;">
+                        <p>Expected:</p>
                     </div>
-                    <div class="col-6">
-                        <p>Model 2</p>
-                        <div class="border rounded" style="padding: .5em; margin: .5rem;">
-                            <p>Expected:</p>
-                        </div>
-                        <div class="border rounded" style="padding: .5em; margin: .5rem;">
-                            <p>Predicted:</p>
-                        </div>
+                    <div class="border rounded" style="padding: .5em; margin: .5rem;">
+                        <p>Predicted:</p>
                     </div>
                 </div>
+                <div class="col-6">
+                    <p>Model 2</p>
+                    <div class="border rounded" style="padding: .5em; margin: .5rem;">
+                        <p>Expected:</p>
+                    </div>
+                    <div class="border rounded" style="padding: .5em; margin: .5rem;">
+                        <p>Predicted:</p>
+                    </div>
+                </div>
+            </div>
 
-                <hr>
+            <hr>
 
-                <h2>Visualisation</h2>
-                <p>Visualisation will go here...</p>
+            <h2>Visualisation</h2>
+            <p>Visualisation will go here...</p>
 
-                <form action="/" method="get">
-                    <button type="submit" class="btn btn-danger" style="margin-top: 0.5rem;">Reset</button>
-                </form>
-            {% endif %}
+            <form action="/" method="get">
+                <button type="submit" class="btn btn-danger" style="margin-top: 0.5rem;">Reset</button>
+            </form>
 
         </div>
         <div class="col-2"></div>
